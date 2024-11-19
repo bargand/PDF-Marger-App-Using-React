@@ -1,0 +1,139 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container styling */
+  .container {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Title styling */
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    color: #4caf50;
+    margin-bottom: 20px;
+  }
+  
+  /* Main section styling (upload and action buttons) */
+  .main-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Upload section */
+  .upload-section {
+    margin-bottom: 20px;
+  }
+  
+  .file-input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .file-input:hover {
+    border-color: #4caf50;
+  }
+  
+  /* Action buttons (merge and download) */
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .merge-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .merge-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .download-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .download-button:hover {
+    background-color: #1769aa;
+  }
+  
+  /* File list styling (documents shown below the main section) */
+  .file-list {
+    width: 100%;
+    margin-top: 30px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .file-list h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .file-item {
+    background: #ffffff;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+  }
+  
+  .file-item:hover {
+    background: #f0f0f0;
+  }
+
+
+  /* main code */
