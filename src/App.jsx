@@ -1,33 +1,9 @@
 import React, { useState } from "react";
 import { PDFDocument } from "pdf-lib";
-import { useDrag, useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import DraggableFile from "./DraggableFile";
 import "./styles.css";
-
-// A custom hook for drag-and-drop
-const DraggableFile = ({ file, index, moveFile }) => {
-  const [, drag] = useDrag(() => ({
-    type: "FILE",
-    item: { index },
-  }));
-
-  const [, drop] = useDrop(() => ({
-    accept: "FILE",
-    hover: (item) => {
-      if (item.index !== index) {
-        moveFile(item.index, index);
-        item.index = index; // Update the dragged item's index
-      }
-    },
-  }));
-
-  return (
-    <li ref={(node) => drag(drop(node))} className="file-item">
-      {file.name}
-    </li>
-  );
-};
 
 const App = () => {
   const [pdfFiles, setPdfFiles] = useState([]);
@@ -39,7 +15,7 @@ const App = () => {
     setPdfFiles([...pdfFiles, ...files]);
   };
 
-  // Reorder files after drag-and-drop
+  // Move file during drag-and-drop
   const moveFile = (fromIndex, toIndex) => {
     const updatedFiles = [...pdfFiles];
     const [movedFile] = updatedFiles.splice(fromIndex, 1);
@@ -68,7 +44,7 @@ const App = () => {
   const downloadMergedPdf = () => {
     const link = document.createElement("a");
     link.href = mergedPdf;
-    link.download = "merged.pdf";
+    link.download = "Bargand_merged.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -78,8 +54,6 @@ const App = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="container">
         <h1 className="title">PDF Merger</h1>
-
-        {/* Main section for file upload and buttons */}
         <div className="main-section">
           <div className="upload-section">
             <input
@@ -90,7 +64,6 @@ const App = () => {
               className="file-input"
             />
           </div>
-
           <div className="action-buttons">
             <button
               onClick={mergePdfs}
@@ -99,8 +72,6 @@ const App = () => {
             >
               Merge PDFs
             </button>
-
-            {/* Show download button only after PDFs are merged */}
             {mergedPdf && (
               <button onClick={downloadMergedPdf} className="download-button">
                 Download Merged PDF
@@ -108,8 +79,6 @@ const App = () => {
             )}
           </div>
         </div>
-
-        {/* Show selected files below the main section */}
         {pdfFiles.length > 0 && (
           <div className="file-list">
             <h2>Uploaded Files</h2>
@@ -131,3 +100,6 @@ const App = () => {
 };
 
 export default App;
+
+
+// main code
